@@ -60,6 +60,7 @@ public class Accion implements Serializable {
 	public Permiso removePermiso(Permiso permiso) {
 		getPermisos().remove(permiso);
 		permiso.setAccion(null);
+	
 		
 		return permiso;
 	}
