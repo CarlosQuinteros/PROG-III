@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Video-Club" transaction-type="RESOURCE_LOCAL">
+		<class>model.Actor</class>
+		<class>model.ActorInfo</class>
+		<class>model.Address</class>
+		<class>model.Category</class>
+		<class>model.City</class>
+		<class>model.Country</class>
+		<class>model.Customer</class>
+		<class>model.CustomerList</class>
+		<class>model.Film</class>
+		<class>model.FilmActor</class>
+		<class>model.FilmActorPK</class>
+		<class>model.FilmCategory</class>
+		<class>model.FilmCategoryPK</class>
+		<class>model.FilmList</class>
+		<class>model.Inventory</class>
+		<class>model.Language</class>
+		<class>model.NicerButSlowerFilmList</class>
+		<class>model.Payment</class>
+		<class>model.Rental</class>
+		<class>model.SalesByFilmCategory</class>
+		<class>model.SalesByStore</class>
+		<class>model.Staff</class>
+		<class>model.StaffList</class>
+		<class>model.Store</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/VideoClub"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="carloscq"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		</properties>
+	</persistence-unit>
+</persistence>
