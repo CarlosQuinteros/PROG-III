@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="veterinaria" transaction-type="RESOURCE_LOCAL">
+		<class>modelo.Localidad</class>
+		<class>modelo.Domicilio</class>
+		<class>modelo.Cliente</class>
+		<class>modelo.Especie</class>
+		<class>modelo.Raza</class>
+		<class>modelo.MotivoVisita</class>
+		<class>modelo.Visita</class>
+		<class>modelo.Medicamento</class>
+		<class>modelo.Medicacion</class>
+		<class>modelo.Enfermedad</class>
+		<class>modelo.VacunaColocada</class>
+		<class>modelo.EnfermedadPaciente</class>
+		<class>modelo.Paciente</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/veterinaria"/>
+			<property name="javax.persistence.jdbc.user" value="postgres"/>
+			<property name="javax.persistence.jdbc.password" value="carloscq"/>
+			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+		</properties>
+	</persistence-unit>
+</persistence>
