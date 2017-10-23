@@ -23,7 +23,7 @@ public class EnfermedadPaciente implements Serializable {
 	@ManyToOne
 	private Enfermedad enfermedad;
 	private LocalDate fechaEnfermedad;
-	@ManyToOne
+	@OneToMany
 	private List<modelo.Medicacion> medicacion;
 	private static final long serialVersionUID = 1L;
 
