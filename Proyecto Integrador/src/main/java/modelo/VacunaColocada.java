@@ -15,8 +15,11 @@ public class VacunaColocada implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="vacunaColocada_seq")
+	@SequenceGenerator(name="vacunaColocada_seq", sequenceName="vacunaColocada_seq", initialValue=0, allocationSize=1)
 	private long idVacuna;
 	private LocalDate fechaColocacion;
+	@ManyToOne
 	private Enfermedad enfermedad;
 	private static final long serialVersionUID = 1L;
 

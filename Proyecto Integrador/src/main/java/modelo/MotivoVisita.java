@@ -14,6 +14,8 @@ public class MotivoVisita implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="motivoVisita_seq")
+	@SequenceGenerator(name="motivoVisita_seq", sequenceName="motivoVisita_seq", initialValue=0, allocationSize=1)
 	private long idMotivoVisita;
 	private String descripcion;
 	private static final long serialVersionUID = 1L;

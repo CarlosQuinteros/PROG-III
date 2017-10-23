@@ -14,6 +14,8 @@ public class Medicamento implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="medicamento_seq")
+	@SequenceGenerator(name="medicamento_seq", sequenceName="medicamento_seq", initialValue=0, allocationSize=1)
 	private long idMedicamento;
 	private String codigo;
 	private String nombre;

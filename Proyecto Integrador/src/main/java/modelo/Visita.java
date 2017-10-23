@@ -15,8 +15,11 @@ public class Visita implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="visita_seq")
+	@SequenceGenerator(name="visita_seq", sequenceName="visita_seq", initialValue=0, allocationSize=1)
 	private long idVisita;
 	private LocalDate fechaVisita;
+	@ManyToOne
 	private MotivoVisita motivoVisita;
 	private float pesoVisita;
 	private static final long serialVersionUID = 1L;

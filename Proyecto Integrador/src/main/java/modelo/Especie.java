@@ -14,6 +14,8 @@ public class Especie implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="especie_seq")
+	@SequenceGenerator(name="especie_seq", sequenceName="especie_seq", initialValue=0, allocationSize=1)
 	private long idEspecie;
 	private String nombre;
 	private static final long serialVersionUID = 1L;

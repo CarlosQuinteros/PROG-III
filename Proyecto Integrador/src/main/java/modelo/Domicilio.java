@@ -16,11 +16,14 @@ public class Domicilio implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="domicilio_seq")
+	@SequenceGenerator(name="domicilio_seq", sequenceName="domicilio_seq", initialValue=0, allocationSize=1)
 	private long idDomicilio;
 	private String calle;
 	private Integer numero;
 	private Integer piso;
 	private String depto;
+	@ManyToOne
 	private Localidad localidad;
 	private static final long serialVersionUID = 1L;
 

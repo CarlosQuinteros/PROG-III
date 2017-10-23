@@ -15,8 +15,11 @@ public class Raza implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="raza_seq")
+	@SequenceGenerator(name="raza_seq", sequenceName="raza_seq", initialValue=0, allocationSize=1)
 	private long idRaza;
 	private String nombre;
+	@ManyToOne
 	private Especie especie;
 	private static final long serialVersionUID = 1L;
 	

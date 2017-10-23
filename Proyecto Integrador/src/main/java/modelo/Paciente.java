@@ -19,15 +19,22 @@ public class Paciente implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="paciente_seq")
+	@SequenceGenerator(name="paciente_seq", sequenceName="paciente_seq", initialValue=0, allocationSize=1)
 	private long idPaciente;
 	private String alias;
+	@ManyToOne
 	private Raza raza;
 	private String colorPelo;
 	private LocalDate fechaNacimiento;
+	@ManyToOne
 	private Cliente duenio;
 	private float pesoActual;
+	@OneToMany
 	private List<modelo.Visita> visitas;
+	@OneToMany
 	private List<modelo.VacunaColocada> vacunas;
+	@OneToMany
 	private List<EnfermedadPaciente> enfermedades;
 	private static final long serialVersionUID = 1L;
 

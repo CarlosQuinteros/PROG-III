@@ -14,6 +14,8 @@ public class Enfermedad implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="enfermedad_seq")
+	@SequenceGenerator(name="enfermedad_seq", sequenceName="enfermedad_seq", initialValue=0, allocationSize=1)
 	private long idEnfermedad;
 	private String nombre;
 	private static final long serialVersionUID = 1L;

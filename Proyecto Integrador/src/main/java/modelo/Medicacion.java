@@ -16,8 +16,11 @@ public class Medicacion implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="medicacion_seq")
+	@SequenceGenerator(name="medicacion_seq", sequenceName="medicacion_seq", initialValue=0, allocationSize=1)
 	private long idMedicacion;
 	private String dosis;
+	@ManyToOne
 	private Medicamento medicamento;
 	private Integer intervalo;
 	private String periodo;

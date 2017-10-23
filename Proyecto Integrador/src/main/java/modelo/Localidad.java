@@ -15,6 +15,8 @@ public class Localidad implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="localidad_seq")
+	@SequenceGenerator(name="localidad_seq", sequenceName="localidad_seq", initialValue=0, allocationSize=1)
 	private Long idLocalidad;
 	private String nombre;
 	private String codigoPostal;

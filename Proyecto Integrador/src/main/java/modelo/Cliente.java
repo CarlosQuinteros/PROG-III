@@ -20,11 +20,15 @@ public class Cliente implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue (strategy = GenerationType.SEQUENCE, generator="cliente_seq")
+	@SequenceGenerator(name="cliente_seq", sequenceName="cliente_seq", initialValue=0, allocationSize=1)
 	private long idCliente;
 	private String apellidoFamilia;
+	@ManyToOne
 	private Domicilio domicilio;
 	private String nroCuenta;
 	private String telefono;
+	@OneToMany(mappedBy="duenio")
 	private List<Paciente> listaMascotas;
 
 	private static final long serialVersionUID = 1L;

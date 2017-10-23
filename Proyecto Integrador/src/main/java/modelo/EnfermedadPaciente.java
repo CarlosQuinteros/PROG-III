@@ -17,9 +17,13 @@ public class EnfermedadPaciente implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="enfermedadPaciente_seq")
+	@SequenceGenerator(name="enfermedadPaciente_seq", sequenceName="enfermedadPaciente_seq", initialValue=0, allocationSize=1)
 	private long idEnfermedadPaciente;
+	@ManyToOne
 	private Enfermedad enfermedad;
 	private LocalDate fechaEnfermedad;
+	@OneToMany
 	private List<modelo.Medicacion> medicacion;
 	private static final long serialVersionUID = 1L;
 
