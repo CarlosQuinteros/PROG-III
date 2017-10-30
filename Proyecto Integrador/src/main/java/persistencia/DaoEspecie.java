@@ -15,7 +15,7 @@ public class DaoEspecie {
 		
 	}
 	
-	public Boolean crearEspecie(Especie pEspecie )
+	public Boolean persistirEspecie(Especie pEspecie )
 	{
 		try {
 				em.getTransaction().begin();
@@ -93,13 +93,18 @@ public class DaoEspecie {
 	{
 		
 		try {
-			TypedQuery<Raza> consulta = em.createQuery("SELECT r FROM Razas r WHERE r.especie.idEspecie = " + pEspecie.getIdEspecie(), Raza.class);
+			TypedQuery<Raza> consulta = em.createQuery("SELECT r FROM Razas r WHERE r.especie.idespecie = " + pEspecie.getIdEspecie(), Raza.class);
 			return consulta.getResultList();
 		} catch (Exception e) {
 			// TODO: handle exception
 			return null;
 		}
 		
+	}
+	
+	public List<Especie> obtenerEspeciesPorNombre(String pNombre)
+	{
+		return em.createQuery("SELECT e FROM Especie e WHERE e.nombre LIKE " + "%"+pNombre+"%",Especie.class).getResultList();
 	}
 	
 }
