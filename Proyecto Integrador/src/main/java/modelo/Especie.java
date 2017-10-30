@@ -22,7 +22,14 @@ public class Especie implements Serializable {
 
 	public Especie() {
 		super();
-	}   
+	}  
+	
+	
+	public Especie(String nombre) {
+		this.nombre = nombre;
+	}
+
+
 	public long getIdEspecie() {
 		return this.idEspecie;
 	}

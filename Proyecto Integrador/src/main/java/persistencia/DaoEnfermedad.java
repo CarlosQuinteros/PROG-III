@@ -72,7 +72,7 @@ public class DaoEnfermedad {
 	
 	public List<Enfermedad> obtenerEnfermedadPorNombre(String pNombre)
 	{
-		TypedQuery<Enfermedad> consulta = em.createQuery("SELECT e FROM Enfermedad e WHERE e.nombre LIKE " + "%"+pNombre+"%", Enfermedad.class);
+		TypedQuery<Enfermedad> consulta = em.createQuery("SELECT e FROM Enfermedad e WHERE e.nombre LIKE " + "'%"+pNombre+"%'", Enfermedad.class);
 		return consulta.getResultList();
 	}
 }

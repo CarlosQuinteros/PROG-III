@@ -71,7 +71,7 @@ public class DaoLocalidad {
 	
 	public List<Localidad> obtenerLocalidadesPorNombre(String pNombre)
 	{
-		TypedQuery<Localidad> consulta = em.createQuery("SELECT l FROM Localidad l WHERE l.nombre LIKE "+ "%"+pNombre+"%", Localidad.class);
+		TypedQuery<Localidad> consulta = em.createQuery("SELECT l FROM Localidad l WHERE l.nombre LIKE "+ "'%"+pNombre+"%'", Localidad.class);
 		return consulta.getResultList();
 	}
 	

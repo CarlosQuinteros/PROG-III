@@ -23,8 +23,7 @@ public class DaoEspecie {
 				em.getTransaction().commit();
 				return true;
 		}catch (Exception e) {
-			// TODO: handle exception
-			em.close();			
+			// TODO: handle exception	
 			return false;
 		}
 	}
@@ -40,7 +39,6 @@ public class DaoEspecie {
 		} catch (Exception e) {
 			
 			// TODO: handle exception
-			em.close();
 			return false;
 			
 		}
@@ -93,7 +91,7 @@ public class DaoEspecie {
 	{
 		
 		try {
-			TypedQuery<Raza> consulta = em.createQuery("SELECT r FROM Razas r WHERE r.especie.idespecie = " + pEspecie.getIdEspecie(), Raza.class);
+			TypedQuery<Raza> consulta = em.createQuery("SELECT r FROM Raza r WHERE r.especie_idespecie ="+pEspecie.getIdEspecie(), Raza.class);
 			return consulta.getResultList();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -104,7 +102,7 @@ public class DaoEspecie {
 	
 	public List<Especie> obtenerEspeciesPorNombre(String pNombre)
 	{
-		return em.createQuery("SELECT e FROM Especie e WHERE e.nombre LIKE " + "%"+pNombre+"%",Especie.class).getResultList();
+		return em.createQuery("SELECT e FROM Especie e WHERE e.nombre LIKE " + "'%"+pNombre+"%'",Especie.class).getResultList();
 	}
 	
 }

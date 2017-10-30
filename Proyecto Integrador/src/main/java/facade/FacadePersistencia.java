@@ -10,6 +10,7 @@ public class FacadePersistencia {
 	DaoLocalidad persistenciaLocalidad = new DaoLocalidad();
 	DaoMotivo persistenciaMotivo = new DaoMotivo();
 	DaoRaza persistenciaRaza = new DaoRaza();
+	DaoMedicamento persistenciaMedicamento = new DaoMedicamento();
 
 	public FacadePersistencia(){
 		
@@ -194,6 +195,45 @@ public class FacadePersistencia {
 	{
 		return persistenciaRaza.obtenerRazasPorNombre(pNombre);
 	}
+	
+	
+	//CALSE MEDICAMENTO 
+	
+	public Boolean crearMedicamento(Medicamento pMedicamento)
+	{
+		return persistenciaMedicamento.persisitrMedicamento(pMedicamento);
+	}
+	
+	public Boolean actualizarMedicamento(Medicamento pMedicamento)
+	{
+		return persistenciaMedicamento.modificarMedicamento(pMedicamento);
+	}
+	
+	public Boolean borrarMedicamento(Medicamento pMedicamento)
+	{
+		return persistenciaMedicamento.eliminarMedicamento(pMedicamento);
+	}
+	
+	public Medicamento buscarUnicoMedicamento(long pIdMedicamento)
+	{
+		return persistenciaMedicamento.obtenerUnicoMedicamento(pIdMedicamento);
+	}
+	
+	public List<Medicamento> buscarTodosLosMedicamentos()
+	{
+		return persistenciaMedicamento.obtenerTodosLosMedicamentos();
+	}
+	
+	public List<Medicamento> buscarMedicamentosPorNombre(String pNombre)
+	{
+		return persistenciaMedicamento.obtenerMedicamentosPorNombre(pNombre);
+	}
+	
+	public Medicamento buscarMedicamentoPorCodigo(String pCodigo)
+	{
+		return persistenciaMedicamento.obtenerMedicamentoPorCodigo(pCodigo);
+	}
+	
 	
 	
 }

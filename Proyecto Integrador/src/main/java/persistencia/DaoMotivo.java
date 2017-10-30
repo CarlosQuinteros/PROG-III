@@ -69,7 +69,7 @@ public class DaoMotivo {
 	
 	public List<MotivoVisita> obtenerMotivosPorDescripcion(String pDescripcion)
 	{
-		return em.createQuery("SELECT m FROM MotivoVisita m WHERE descripcion LIKE "+ "%"+pDescripcion+"%",MotivoVisita.class).getResultList();
+		return em.createQuery("SELECT m FROM MotivoVisita m WHERE descripcion LIKE "+ "'%"+pDescripcion+"%'",MotivoVisita.class).getResultList();
 	}
 
 }

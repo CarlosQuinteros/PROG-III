@@ -26,7 +26,6 @@ public class Raza implements Serializable {
 	
 
 	public Raza(String nombre, Especie especie) {
-		super();
 		this.nombre = nombre;
 		this.especie = especie;
 	}

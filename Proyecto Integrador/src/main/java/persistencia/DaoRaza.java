@@ -69,13 +69,7 @@ public class DaoRaza {
 	
 	public List<Raza> obtenerRazasPorNombre(String pNombre)
 	{
-		List<Raza> resultado = null;
-		for (Raza r : obtenerTodasLasRazas()) {
-			if(r.getNombre().contains(pNombre)) {
-				resultado.add(r);
-			}
-		}
-		return resultado;
+		return em.createQuery("SELECT r FROM Raza r WHERE r.nombre LIKE "+ "'%"+pNombre+"%'",Raza.class).getResultList();
 
 	}
 	
