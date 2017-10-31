@@ -66,5 +66,4 @@ public class DaoVacunaColocada {
 	{
 		return em.createQuery("SELECT v FROM vacunacolocada v", VacunaColocada.class).getResultList();
 	}
-	
 }

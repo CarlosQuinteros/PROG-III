@@ -1,5 +1,6 @@
 package persistencia;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import modelo.*;
@@ -75,7 +76,7 @@ public class DaoCliente {
 	public List<Cliente> obtenerClientesPorLocalidad(Localidad pLocalidad)
 	{
 		List<Cliente> listaClientes = obtenerTodosLosClientes();
-		List<Cliente> resultado = null;
+		ArrayList<Cliente> resultado = new ArrayList<Cliente>();
 		
 		for (Cliente cliente : listaClientes) {
 			if(cliente.getDomicilio().getLocalidad().getIdLocalidad().equals(pLocalidad.getIdLocalidad()))
@@ -85,5 +86,6 @@ public class DaoCliente {
 		}
 		return resultado;
 	}
+	
 
 }

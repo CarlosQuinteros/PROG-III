@@ -16,8 +16,8 @@ public class FacadePersistencia {
 	DaoVacunaColocada persistenciaVacunaColocada = new DaoVacunaColocada();
 	DaoMedicacion persistenciaMedicacion = new DaoMedicacion();
 	DaoEnfermedadPaciente persistenciaEnfermedadPaciente = new DaoEnfermedadPaciente();
-	//DaoPaciente persistenciaPaciente = new DaoPaciente();
-	//DaoVisita persistenciaVisita = new DaoVisita();
+	DaoPaciente persistenciaPaciente = new DaoPaciente();
+	DaoVisita persistenciaVisita = new DaoVisita();
 	
 	public FacadePersistencia(){
 		
@@ -402,7 +402,105 @@ public class FacadePersistencia {
 		return persistenciaEnfermedadPaciente.obtenerTodasLasEnfermedadesPaciente();
 	}
 	
+	//CLASE PACIENTE
+	
+	public Boolean crearPaciente(Paciente pPaciente)
+	{
+		return persistenciaPaciente.persistirPaciente(pPaciente);
+	}
+	
+	public Boolean actualizarPaciente(Paciente pPaciente)
+	{
+		return persistenciaPaciente.modificarPaciente(pPaciente);
+	}
+	
+	public Boolean borrarPaciente (Paciente pPaciente)
+	{
+		return persistenciaPaciente.eliminarPaciente(pPaciente);
+	}
+	
+	public Paciente buscarUnicoPaciente(long pIdPaciente)
+	{
+		return persistenciaPaciente.obtenerUnicoPaciente(pIdPaciente);
+	}
+	
+	public List<Paciente> buscarTodosLosPacientes()
+	{
+		return persistenciaPaciente.obtenerTodosLosPacientes();
+	}
+	
+	public List<Paciente> buscarPacientesPorColorDePelo(String pColor)
+	{
+		return persistenciaPaciente.obtenerPacientesPorColorDePelo(pColor);
+	}
+	
+	public List<Paciente> buscarPacientesMayorAXAños(int pCantidadDeAños)
+	{
+		return persistenciaPaciente.obtenerPacientesMayoresDeXAños(pCantidadDeAños);
+	}
+	
+	public List<Paciente> buscarPacientesPorAlias(String pAlias)
+	{
+		return persistenciaPaciente.obtenerPacientesPorAlias(pAlias);
+	}
+	
+	public List<Paciente> buscarPacientesPorRaza(Raza pRaza)
+	{
+		return persistenciaPaciente.obtenerPacientesPorRaza(pRaza);
+	}
+	
+	public List<VacunaColocada> buscarVacunasDePaciente(Paciente pPaciente)
+	{
+		return persistenciaPaciente.obtenerMisVacunasPorPaciente(pPaciente);
+	}
+	
+	public List<Visita> buscarVisitasDePaciente (Paciente pPaciente)
+	{
+		return persistenciaPaciente.obtenerMisVisitasPorPaciente(pPaciente);
+	}
+	
 	//CLASE VISITA
+	
+	public Boolean crearVisita(Visita pVisita)
+	{
+		return persistenciaVisita.persistirVisita(pVisita);
+	}
+	
+	public Boolean actualizarVisita(Visita pVisita)
+	{
+		return persistenciaVisita.modificarVisita(pVisita);
+	}
+	
+	public Boolean eliminarVisita(Visita pVisita)
+	{
+		return persistenciaVisita.eliminarVisita(pVisita);
+	}
+	
+	public Visita buscarUnicaVisita(long pIdVisita)
+	{
+		return persistenciaVisita.obtenerUnicaVisita(pIdVisita);
+	}
+	
+	public List<Visita> buscarTodasLasVisitas()
+	{
+		return persistenciaVisita.obtenerTodasLasVisitas();
+	}
+	
+	public List<Visita> buscarVisitasPorMotivo2(MotivoVisita pMotivo)
+	{
+		return persistenciaVisita.obtenerVisitasPorMotivo(pMotivo);
+	}
+	
+	public List<Visita> buscarVisitasPorLocalidad(Localidad pLocalidad)
+	{
+		return persistenciaVisita.obtenerVisitasPorLocalidad(pLocalidad);
+	}
+	
+	public List<Visita> buscarVisitasDelDia()
+	{
+		return persistenciaVisita.obtenerVisitasDelDia();
+	}
+	
 	
 	
 

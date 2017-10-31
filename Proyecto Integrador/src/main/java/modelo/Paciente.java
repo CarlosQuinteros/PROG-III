@@ -111,5 +111,19 @@ public class Paciente implements Serializable {
 	public void setEnfermedades(List<EnfermedadPaciente> enfermedades) {
 		this.enfermedades = enfermedades;
 	}
+	
+	public void agregarVisita(Visita pVisita)
+	{
+		visitas.add(pVisita);
+	}
+	
+	public void agregarVacuna (VacunaColocada pVacuna) {
+		vacunas.add(pVacuna);
+	}
+	
+	public void agregarEnfermedadPaciente(EnfermedadPaciente pEnfermedadPaciente)
+	{
+		enfermedades.add(pEnfermedadPaciente);
+	}
    
 }

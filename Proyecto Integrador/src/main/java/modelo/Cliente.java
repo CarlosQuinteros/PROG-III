@@ -31,8 +31,17 @@ public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public Cliente() {
-		super();
 	}   
+	
+	
+	public Cliente(String apellidoFamilia, Domicilio domicilio, String nroCuenta, String telefono) {
+		this.apellidoFamilia = apellidoFamilia;
+		this.domicilio = domicilio;
+		this.nroCuenta = nroCuenta;
+		this.telefono = telefono;
+	}
+
+
 	public long getIdCliente() {
 		return this.idCliente;
 	}
