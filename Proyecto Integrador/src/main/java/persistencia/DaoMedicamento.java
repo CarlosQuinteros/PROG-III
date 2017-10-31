@@ -9,6 +9,10 @@ public class DaoMedicamento {
 	EntityManagerFactory emf = Persistence.createEntityManagerFactory("veterinaria");
 	EntityManager em = emf.createEntityManager();
 	
+	public DaoMedicamento() {
+		
+	}
+	
 	public Boolean persisitrMedicamento(Medicamento pMedicamento)
 	{
 		try {

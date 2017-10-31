@@ -89,14 +89,7 @@ public class DaoEspecie {
 	
 	public List<Raza> obtenerMisRazas(Especie pEspecie)
 	{
-		
-		try {
-			TypedQuery<Raza> consulta = em.createQuery("SELECT r FROM Raza r WHERE r.especie_idespecie ="+pEspecie.getIdEspecie(), Raza.class);
-			return consulta.getResultList();
-		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
-		}
+			return em.createQuery("SELECT r FROM Raza r WHERE r.especie_idespecie ="+pEspecie.getIdEspecie(), Raza.class).getResultList();
 		
 	}
 	

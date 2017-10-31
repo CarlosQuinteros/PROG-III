@@ -11,6 +11,7 @@ public class FacadePersistencia {
 	DaoMotivo persistenciaMotivo = new DaoMotivo();
 	DaoRaza persistenciaRaza = new DaoRaza();
 	DaoMedicamento persistenciaMedicamento = new DaoMedicamento();
+	DaoDomicilio persistenciaDomicilio = new DaoDomicilio();
 
 	public FacadePersistencia(){
 		
@@ -235,5 +236,37 @@ public class FacadePersistencia {
 	}
 	
 	
+	//CLASE DOMICILIO
+	
+	public Boolean crearDomicilio(Domicilio pDomicilio)
+	{
+		return persistenciaDomicilio.persistirDomicilio(pDomicilio);
+	}
+	
+	public Boolean actualizarDomicilio (Domicilio pDomicilio)
+	{
+		return persistenciaDomicilio.modificarDomicilio(pDomicilio);
+	}
+	
+	public Boolean borrarDomicilio(Domicilio pDomicilio)
+	{
+		return persistenciaDomicilio.eliminarDomicilio(pDomicilio);
+	}
+	
+	public Domicilio buscarUnicoDomicilio(long pIdDomicilio)
+	{
+		return persistenciaDomicilio.obtenerUnicoDomicilio(pIdDomicilio);
+	}
+	
+	public List<Domicilio> buscarDomiciliosPorCalleODepto(String pCalleODepto)
+	{
+		return persistenciaDomicilio.obtenerDomiciliosPorCalleODepartamento(pCalleODepto);
+	}
+	
+	public List<Domicilio> buscarTodosLosDomicilios()
+	{
+		return persistenciaDomicilio.obtenerTodosLosDomicilios();
+	}
+
 	
 }
