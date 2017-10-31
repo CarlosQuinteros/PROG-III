@@ -12,7 +12,13 @@ public class FacadePersistencia {
 	DaoRaza persistenciaRaza = new DaoRaza();
 	DaoMedicamento persistenciaMedicamento = new DaoMedicamento();
 	DaoDomicilio persistenciaDomicilio = new DaoDomicilio();
-
+	DaoCliente persistenciaCliente = new DaoCliente();
+	DaoVacunaColocada persistenciaVacunaColocada = new DaoVacunaColocada();
+	DaoMedicacion persistenciaMedicacion = new DaoMedicacion();
+	DaoEnfermedadPaciente persistenciaEnfermedadPaciente = new DaoEnfermedadPaciente();
+	//DaoPaciente persistenciaPaciente = new DaoPaciente();
+	//DaoVisita persistenciaVisita = new DaoVisita();
+	
 	public FacadePersistencia(){
 		
 	}
@@ -267,6 +273,138 @@ public class FacadePersistencia {
 	{
 		return persistenciaDomicilio.obtenerTodosLosDomicilios();
 	}
+	
+	//CLASE CLIENTE
+	
+	public Boolean crearCliente(Cliente pCliente)
+	{
+		return persistenciaCliente.persistirCliente(pCliente);
+	}
+	
+	public Boolean actualizarCliente (Cliente pCliente)
+	{
+		return persistenciaCliente.modificarCliente(pCliente);
+	}
+	
+	public Boolean borrarCliente(Cliente pCliente)
+	{
+		return persistenciaCliente.eliminarCliente(pCliente);
+	}
+	
+	public Cliente buscarUnicoCliente(long pIdCliente)
+	{
+		return persistenciaCliente.obtenerUnicoCliente(pIdCliente);
+	}
+	
+	public List<Cliente> buscarTodosLosClientes()
+	{
+		return persistenciaCliente.obtenerTodosLosClientes();
+	}
+	
+	public List<Cliente> buscarClientesPorLocalidad(Localidad pLocalidad)
+	{
+		return persistenciaCliente.obtenerClientesPorLocalidad(pLocalidad);
+	}
+	
+	public List<Cliente> buscarClientesPorApellidoFamilia(String pApellido)
+	{
+		return persistenciaCliente.obtenerClientesPorApellidoFamilia(pApellido);
+	}
+	
+	public List<Paciente> buscarPacientesPorCliente(Cliente pCliente)
+	{
+		return persistenciaCliente.obtenerPacientesPorCliente(pCliente);
+	}
+	
+	//CLASE VACUNA COLOCADA
+	
+	public Boolean crearVacunaColocada(VacunaColocada pVacuna)
+	{
+		return persistenciaVacunaColocada.persistirVacunaColocada(pVacuna);
+	}
+	
+	public Boolean actualizarVacunaColocada(VacunaColocada pVacuna)
+	{
+		return persistenciaVacunaColocada.modificarVacunaColocada(pVacuna);
+	}
+	
+	public Boolean borrarVacunaColocada(VacunaColocada pVacuna)
+	{
+		return persistenciaVacunaColocada.eliminarVacunaColocada(pVacuna);
+	}
+	
+	public VacunaColocada buscarUnicaVacunaColocada(long pIdVacunaColocada)
+	{
+		return persistenciaVacunaColocada.obtenerUnicaVacunaColocada(pIdVacunaColocada);
+	}
+	
+	public List<VacunaColocada> buscarTodasLasVacunasColocadas()
+	{
+		return persistenciaVacunaColocada.obtenerTodasLasVacunasColocadas();
+	}
+	
+	//CLASE MEDICACION
+	
+	public Boolean crearMedicacion(Medicacion pMedicacion)
+	{
+		return persistenciaMedicacion.persistirMedicacion(pMedicacion);
+	}
+	
+	public Boolean actualizarMedicacion(Medicacion pMedicacion)
+	{
+		return persistenciaMedicacion.modificarMedicacion(pMedicacion);
+	}
+	
+	public Boolean borrarMedicacion(Medicacion pMedicacion)
+	{
+		return persistenciaMedicacion.eliminarMedicacion(pMedicacion);
+	}
+	
+	public Medicacion buscarUnicaMedicacion(long pIdMedicacion)
+	{
+		return persistenciaMedicacion.obtenerUnicaMedicacion(pIdMedicacion);
+	}
+	
+	public List<Medicacion> buscarTodasLasMedicaciones()
+	{
+		return persistenciaMedicacion.obtenerTodasLasMedicaciones();
+	}
+	
+	public List<Medicacion> buscarMedicacionesPorMedicamento(Medicamento pMedicamento)
+	{
+		return persistenciaMedicacion.obtenerMedicacionesPorMedicamento(pMedicamento);
+	}
+	
+	//CLASE ENFERMEDAD PACIENTE
+	
+	public Boolean crearEnfermedadPaciente(EnfermedadPaciente pEnfermedadPaciente)
+	{
+		return persistenciaEnfermedadPaciente.persistirEnfermedadPaciente(pEnfermedadPaciente);
+	}
+	
+	public Boolean actualizarEnfermedadPaciente(EnfermedadPaciente pEnfermedadPaciente)
+	{
+		return persistenciaEnfermedadPaciente.modificarEnfermedadPaciente(pEnfermedadPaciente);
+	}
+	
+	public Boolean borrarEnfermedadPaciente(EnfermedadPaciente pEnfermedadPaciente)
+	{
+		return persistenciaEnfermedadPaciente.eliminarEnferemdadPaciente(pEnfermedadPaciente);
+	}
+	
+	public EnfermedadPaciente buscarUnicaEnfermedadPaciente(long pId)
+	{
+		return persistenciaEnfermedadPaciente.obtenerUnicaEnfermedadPaciente(pId);
+	}
+	
+	public List<EnfermedadPaciente> buscarTodasLasEnfermedadesPaciente()
+	{
+		return persistenciaEnfermedadPaciente.obtenerTodasLasEnfermedadesPaciente();
+	}
+	
+	//CLASE VISITA
+	
+	
 
 	
 }
