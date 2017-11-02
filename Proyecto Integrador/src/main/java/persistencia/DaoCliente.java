@@ -70,7 +70,8 @@ public class DaoCliente {
 	
 	public List<Paciente> obtenerPacientesPorCliente(Cliente pCliente)
 	{
-		return em.createQuery("SELECT p FROM Paciente p WHERE p.duenio_idcliente = "+pCliente.getIdCliente(), Paciente.class ).getResultList();
+		//return em.createQuery("SELECT p FROM Paciente p WHERE p.duenio_idcliente = "+pCliente.getIdCliente(), Paciente.class ).getResultList();
+		return pCliente.getListaPacientes();
 	}
 	
 	public List<Cliente> obtenerClientesPorLocalidad(Localidad pLocalidad)

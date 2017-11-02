@@ -82,5 +82,10 @@ public class Cliente implements Serializable {
 	{
 		return this.listaMascotas;
 	}
+	
+	public void agregarPaciente(Paciente pPaciente)
+	{
+		listaMascotas.add(pPaciente);
+	}
    
 }

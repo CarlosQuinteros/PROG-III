@@ -3,6 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.lang.String;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -31,7 +32,7 @@ public class Paciente implements Serializable {
 	private Cliente duenio;
 	private float pesoActual;
 	@OneToMany
-	private List<modelo.Visita> visitas;
+	private List<modelo.Visita> visitas = new ArrayList<Visita>();
 	@OneToMany
 	private List<modelo.VacunaColocada> vacunas;
 	@OneToMany
@@ -41,6 +42,21 @@ public class Paciente implements Serializable {
 	public Paciente() {
 		super();
 	}   
+	
+	
+	
+	public Paciente(String alias, Raza raza, String colorPelo, LocalDate fechaNacimiento, Cliente duenio,
+			float pesoActual) {
+		this.alias = alias;
+		this.raza = raza;
+		this.colorPelo = colorPelo;
+		this.fechaNacimiento = fechaNacimiento;
+		this.duenio = duenio;
+		this.pesoActual = pesoActual;
+	}
+
+
+
 	public long getIdPaciente() {
 		return this.idPaciente;
 	}

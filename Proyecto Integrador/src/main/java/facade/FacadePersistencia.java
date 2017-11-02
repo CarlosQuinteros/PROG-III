@@ -463,7 +463,7 @@ public class FacadePersistencia {
 	
 	public Boolean crearVisita(Visita pVisita)
 	{
-		return persistenciaVisita.persistirVisita(pVisita);
+		return persistenciaVisita.persistirVisita (pVisita);
 	}
 	
 	public Boolean actualizarVisita(Visita pVisita)
