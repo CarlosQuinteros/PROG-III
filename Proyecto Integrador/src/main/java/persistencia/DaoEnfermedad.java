@@ -3,6 +3,7 @@ package persistencia;
 import java.util.List;
 
 import javax.persistence.*;
+
 import modelo.*;
 
 public class DaoEnfermedad {
