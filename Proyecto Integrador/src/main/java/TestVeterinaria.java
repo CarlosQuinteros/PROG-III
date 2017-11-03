@@ -62,8 +62,7 @@ public class TestVeterinaria {
 		Cliente c2 = new Cliente("Brizuela", d2, "123456785676767", "3825-436032" );
 		
 		Paciente p1= new Paciente("Fiona", new Raza("Pastor aleman",  new Especie("canino")),"negro y marron", LocalDate.now() ,c1, 42);
-		Visita v1 = new Visita(LocalDate.now(), new MotivoVisita("Baño"), 42);
-		p1.agregarVisita(v1);
+		Visita v1 = new Visita(LocalDate.now(), new MotivoVisita("Baï¿½o"), 42);		p1.agregarVisita(v1);
 		//persistencia.crearPaciente(p1);
 		Visita visitaAActualzar = persistencia.buscarUnicaVisita(46);
 		LocalDate fecha = LocalDate.of(2017, 11, 2);
