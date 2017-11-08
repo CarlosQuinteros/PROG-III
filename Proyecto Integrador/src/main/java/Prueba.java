@@ -11,7 +11,7 @@ public class Prueba {
 		Especie e1 = new Especie("Canino");
 		//persistencia.crearEspecie(e1);
 		Raza r1 = new Raza("Pitbull", persistencia.buscarUnicaEspecie(2));
-		persistencia.crearRaza(r1);
+		//persistencia.crearRaza(r1);
 		List<Raza> razas = persistencia.buscarTodasLasRazas();
 		for (Raza raza : razas) {
 			System.out.println(raza.getNombre() + " Especie: " + raza.getEspecie().getNombre() );
