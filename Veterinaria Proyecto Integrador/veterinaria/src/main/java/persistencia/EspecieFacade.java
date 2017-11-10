@@ -1,17 +1,19 @@
 package persistencia;
 
-import modelo.*;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import modelo.*;
+import java.util.List;
+
 @Stateless
-public class EspecieFacade extends AbstractFacade<Especie> {
-
-    @PersistenceContext(unitName= "puveterinaria")
-    private EntityManager em;
-
+public class EspecieFacade extends AbstractFacade<Especie>{
+	
+	@PersistenceContext(unitName="puveterinaria")
+	private EntityManager em;
+	
+	
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -43,4 +45,5 @@ public class EspecieFacade extends AbstractFacade<Especie> {
 		}
 	}
     
+
 }
