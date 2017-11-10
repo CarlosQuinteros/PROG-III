@@ -11,13 +11,17 @@ xmlns:p="http://primefaces.org/ui">
 </h:head>
 <h:body>
 	<h:form>
-	<p:menubar>
-		<p:menuitem>Especies</p:menuitem>
-		<p:menuitem>Razas</p:menuitem>
-		<p:menuitem>Pacientes</p:menuitem>
-		<p:menuitem>Visitas</p:menuitem>
-		<p:menuitem>Reportes</p:menuitem>	
-	</p:menubar>
+			<h3>Crear Especie</h3>
+			<p:messages id="msjEspecie" showDetail="true" autoUpdate="true"
+			closable="true" severity="info,fatal,warn" />
+			<h:panelGrid columns="3">
+			<h:outputLabel for="txtNombre">Nombre:</h:outputLabel>
+			<p:inputText value="#{especieController.current.nombre}"
+			id="txtNombre"></p:inputText>
+			<p:commandButton id="btnGuardarEspecie" value="Guardar Especie"
+			action="#{especieController.crearEspecie()}">
+			</p:commandButton>
+			</h:panelGrid>
 	</h:form>
 </h:body>
 </html>

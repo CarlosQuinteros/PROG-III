@@ -2,7 +2,8 @@ package persistencia;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 import modelo.*;
 import java.util.List;
@@ -10,8 +11,8 @@ import java.util.List;
 @Stateless
 public class EspecieFacade extends AbstractFacade<Especie>{
 	
-	@PersistenceContext(unitName="puveterinaria")
-	private EntityManager em;
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("puveterinaria");
+	EntityManager em = emf.createEntityManager();
 	
 	
     @Override

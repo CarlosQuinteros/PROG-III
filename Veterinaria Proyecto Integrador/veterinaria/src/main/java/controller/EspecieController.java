@@ -1,8 +1,11 @@
 package controller;
 
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+
 import persistencia.EspecieFacade;
 import modelo.*;
 
@@ -38,20 +41,22 @@ public class EspecieController {
 	}
 	
 	
-	public String crearEspecie()
+	public void crearEspecie()
 	{
 		try {
 			if(ejFacade.existeEspecieNombre(current.getNombre()))
 			{
 				getEjFacade().create(current);
-				return "Especie creada correctamente";
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Especie creada correctamente ",current.getNombre() ));
+				current = new Especie();
 			}
 			else {
-				return "Especie no creada correctamente";
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Especie no creada correctamente ","Ya existe la especie " + current.getNombre() ));
+				
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "Especie no creada correctamente";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Especie no creada correctamente ","Ocurrió un problema al cargar la especie!" ));
 		}
 	}
 
