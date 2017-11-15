@@ -12,7 +12,11 @@ xmlns:p="http://primefaces.org/ui">
 <h:body>
 	<h:form>
 	<p:menubar>
-		<p:menuitem>Especies</p:menuitem>
+		<p:menuitem>
+			<p:link outcome="vistaEspecie" value="Especie">
+			    <f:param name="productId" value="10" />
+			</p:link>
+		</p:menuitem>
 		<p:menuitem>Razas</p:menuitem>
 		<p:menuitem>Pacientes</p:menuitem>
 		<p:menuitem>Visitas</p:menuitem>

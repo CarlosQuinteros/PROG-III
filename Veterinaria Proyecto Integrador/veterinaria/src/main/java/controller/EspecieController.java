@@ -51,7 +51,7 @@ public class EspecieController {
 				current = new Especie();
 			}
 			else {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Especie no creada correctamente ","Ya existe la especie " + current.getNombre() ));
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Especie no creada ","Ya existe la especie " + current.getNombre() ));
 				
 			}
 		} catch (Exception e) {

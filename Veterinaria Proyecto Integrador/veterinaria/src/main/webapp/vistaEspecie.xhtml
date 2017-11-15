@@ -16,10 +16,8 @@ xmlns:p="http://primefaces.org/ui">
 			closable="true" severity="info,fatal,warn" />
 			<h:panelGrid columns="3">
 			<h:outputLabel for="txtNombre">Nombre:</h:outputLabel>
-			<p:inputText value="#{especieController.current.nombre}"
-			id="txtNombre"></p:inputText>
-			<p:commandButton id="btnGuardarEspecie" value="Guardar Especie"
-			action="#{especieController.crearEspecie()}">
+			<p:inputText 	value="#{especieController.current.nombre}"		id="txtNombre"></p:inputText>
+			<p:commandButton id="btnGuardarEspecie" value="Guardar Especie" action="#{especieController.crearEspecie()}">
 			</p:commandButton>
 			</h:panelGrid>
 	</h:form>
