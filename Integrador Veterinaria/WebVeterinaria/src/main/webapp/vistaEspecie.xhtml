@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Especies</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">  
+            <p:fieldset legend="Crear Especie">
+                <p:fragment> 
+                    <p:messages id="mensaje"  autoUpdate="false"  showDetail="true" closable="true"></p:messages>
+                    <h:panelGrid id="grid" columns="3" cellpadding="">
+                        <h:outputLabel for="txtNombre" value="Nombre"/>
+                        <p:inputText id="txtNombre" value="#{especieController.current.nombre}" validatorMessage="Solo se permiten letras.">
+                            <f:validateRegex pattern="^[a-zA-Z]+$"></f:validateRegex>
+                        </p:inputText>
+                        <p:message for="txtNombre"></p:message>
+                        <p:commandButton id="btnGuardarEspecie" value="Guardar" icon ="ui-icon-check" action="#{especieController.crearEspecie()}" update="tablaEspecie, grid, mensaje">
+                        </p:commandButton>
+                    </h:panelGrid>
+
+                </p:fragment>
+
+            </p:fieldset>
+            <p:fieldset legend="Listado Especies">
+                <p:dataTable id="tablaEspecie" var="item" widgetVar="mitabla" value="#{especieController.ejFacade.findAll()}" emptyMessage="No hay especies" rows="8" paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" style="width:500px;text-align: center" selection="#{especieController.selectedEspecie}" rowKey="#{item.idEspecie}" >
+                    <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                    <p:column sortBy="#{item.idEspecie}" style="width:32px;text-align: center">
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.idEspecie}"/>
+                    </p:column>
+
+                    <p:column headerText="Nombre" sortBy="#{item.nombre}" filterBy="#{item.nombre}" filterMatchMode="contains" style="width:32px;text-align: center">
+                        <h:outputText  value="#{item.nombre}"/>
+                    </p:column>
+                    <p:column style="width:16px;text-align: center">
+                         <p:commandButton icon="ui-icon-pencil" disabled="true">
+
+                        </p:commandButton>
+                    </p:column>
+                    <p:column style="width:16px;text-align: center">
+                         <p:commandButton id="btnEliminarEspecie" icon="ui-icon-closethick" immediate="true" update="tablaEspecie">
+                            <p:confirm header="Confirmation" message="¿Estas seguro de eliminar la especie?" icon="ui-icon-alert" />
+
+                        </p:commandButton>
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Si" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" action="#{especieController.eliminarEspecie()}" update="tablaEspecie"/>
+                                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                        </p:confirmDialog>
+                    </p:column>
+                    <f:facet name="footer">
+                        <p:commandButton update=":form:gridDetalle" icon="ui-icon-search" value="Ver" oncomplete="PF('EspecieDialog').show()"/>
+                    </f:facet>
+                </p:dataTable>
+
+                <p:dialog header="Info Especie" widgetVar="EspecieDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="true">
+                    <p:outputPanel id="EspecieDetalle" style="text-align:center;">
+                            <p:panelGrid id="gridDetalle" columns="2">
+                            <h:outputText value="Id:" />
+                            <h:outputText value="#{especieController.selectedEspecie.idEspecie}"/>
+                            <h:outputText value="Nombre"/>
+                            <h:outputText value="#{especieController.selectedEspecie.nombre}"/>
+                        </p:panelGrid>
+                    </p:outputPanel>
+                </p:dialog>
+            </p:fieldset>
+
+        </h:form>
+
+    </h:body>
+</html>
